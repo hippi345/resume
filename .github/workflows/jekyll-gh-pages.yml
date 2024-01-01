@@ -11,14 +11,16 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
           
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
           npm install
           npm run build
+          
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
@@ -27,10 +29,6 @@ jobs:
           branch: deploy
           folder: build
           
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: build
 # Deployment job
   deploy:
     environment:
