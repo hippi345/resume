@@ -20,7 +20,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2 # Use the upload-artifact action
         with:
-          name: build
+          name: github-pages
           path: build
           retention-days: 7 # Optional, specify how long to keep the artifact
 
@@ -43,9 +43,8 @@ jobs:
     - name: Download artifact
       uses: actions/download-artifact@v2 # Use the download-artifact action
       with:
-        name: build # Specify the artifact name
-        path: build # Specify the download path
+        name: github-pages # Specify the artifact name
 
     - name: Deploy to GitHub Pages
-      id: build
+      id: github-pages
       uses: actions/deploy-pages@v4
