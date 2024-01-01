@@ -44,7 +44,7 @@ jobs:
         uses: actions/download-artifact@v2 # Use the download-artifact action
         with:
           name: github-pages # Specify the artifact name
-          path: github-page # Specify the download path
+          path: github-pages # Specify the download path
 
       - name: Deploy to GitHub Pages
         id: github-pages
