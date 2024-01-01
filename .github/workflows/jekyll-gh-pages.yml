@@ -18,9 +18,11 @@ jobs:
           npm run build
           
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v2 # Use the upload-artifact action
         with:
+          name: build
           path: build
+          retention-days: 7 # Optional, specify how long to keep the artifact
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
