@@ -23,6 +23,11 @@ jobs:
           token: ${{ secrets.MY_TOKEN }}
           branch: deploy
           folder: build
+          
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
 # Deployment job
   deploy:
     environment:
@@ -34,6 +39,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          source: deploy
-          folder: build
