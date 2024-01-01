@@ -27,7 +27,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Document file="/sample.pdf" onLoadSuccess={onDocumentLoadSuccess}>
-          <Page height="600" pageNumber={pageNumber} />
+          <Page height="800" pageNumber={pageNumber} />
         </Document>
         <p> Page {pageNumber} of {numPages}</p>
         { pageNumber > 1 && 
